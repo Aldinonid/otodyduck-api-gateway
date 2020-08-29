@@ -6,6 +6,9 @@ const logger = require("morgan");
 
 const toolsRouter = require("./routes/tools");
 const usersRouter = require("./routes/users");
+const refreshTokensRouter = require("./routes/refreshTokens");
+
+const verifyToken = require("./middlewares/verifyToken");
 
 const app = express();
 
@@ -17,5 +20,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/tools", toolsRouter);
 app.use("/users", usersRouter);
+app.use("/refresh-tokens", refreshTokensRouter);
 
 module.exports = app;

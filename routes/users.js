@@ -1,8 +1,16 @@
-var router = require("express").Router();
+const router = require("express").Router();
+const userHandler = require("./handler/users");
+const verifyToken = require("../middlewares/verifyToken");
 
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
-});
+//? GET, POST, PUT, DELETE ?//
+router.get("/", verifyToken, userHandler.getUser);
+
+router.post("/register", userHandler.register);
+router.post("/login", userHandler.login);
+router.post("/logout", verifyToken, userHandler.logout);
+
+router.put("/:id", verifyToken, userHandler.update);
+
+router.delete("/:id", userHandler.destroy);
 
 module.exports = router;
