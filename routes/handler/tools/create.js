@@ -1,13 +1,12 @@
 const apiAdapter = require("../../apiAdapter");
-const { URL_SERVICE_MEDIA } = process.env;
+const { URL_SERVICE_COURSE } = process.env;
 
-const api = apiAdapter(URL_SERVICE_MEDIA);
+const api = apiAdapter(URL_SERVICE_COURSE);
 
 module.exports = async (req, res) => {
   try {
-    const data = req.body;
-    const createTool = await api.post("/tools", data);
-    return res.json(createTool.data);
+    const tools = await api.post("/api/tools", req.body);
+    return res.json(tools.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
       return res

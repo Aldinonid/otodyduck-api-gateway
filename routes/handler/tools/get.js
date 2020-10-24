@@ -6,7 +6,7 @@ const api = apiAdapter(URL_SERVICE_COURSE);
 module.exports = async (req, res) => {
   try {
     const id = req.params.id;
-    const tools = await api.delete(`/api/tools/${id}`);
+    const tools = await api.get(`/api/tools/${id}`);
     return res.json(tools.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {

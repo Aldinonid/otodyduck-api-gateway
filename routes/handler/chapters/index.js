@@ -1,13 +1,13 @@
-const get = require("./get");
 const create = require("./create");
 const update = require("./update");
-const getAll = require("./getAll");
 const destroy = require("./destroy");
+const get = require("./get");
+const getAll = require("./getAll");
 
 module.exports = {
-  get,
   create,
   update,
-  getAll,
   destroy,
+  get,
+  getAll,
 };
