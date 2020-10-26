@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-// const toolsRouter = require("./routes/medias");
+const mediaRouter = require("./routes/medias");
 const usersRouter = require("./routes/users");
 const coursesRouter = require("./routes/courses");
 const mentorsRouter = require("./routes/mentors");
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use("/medias", toolsRouter);
+app.use("/media", mediaRouter);
 app.use("/users", usersRouter);
 app.use("/courses", coursesRouter);
 app.use("/mentors", verifyToken, mentorsRouter);
