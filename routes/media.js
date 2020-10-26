@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const mediaHandler = require("./handler/medias");
+const mediaHandler = require("./handler/media");
 
 //? GET, POST, PUT, DELETE ?//
 router.get("/:id", mediaHandler.getMedia);
