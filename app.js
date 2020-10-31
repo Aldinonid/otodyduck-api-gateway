@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require("cors");
 
 // const mediaRouter = require("./routes/media");
 const usersRouter = require("./routes/users");
@@ -13,6 +14,7 @@ const lessonsRouter = require("./routes/lessons");
 const toolsRouter = require("./routes/tools");
 const myCoursesRouter = require("./routes/myCourses");
 const refreshTokensRouter = require("./routes/refreshTokens");
+const frontPageRouter = require("./routes/frontPage");
 
 const verifyToken = require("./middlewares/verifyToken");
 
@@ -23,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 // app.use("/media", mediaRouter);
 app.use("/users", usersRouter);
@@ -33,5 +36,6 @@ app.use("/lessons", verifyToken, lessonsRouter);
 app.use("/tools", verifyToken, toolsRouter);
 app.use("/my-courses", verifyToken, myCoursesRouter);
 app.use("/refresh-tokens", refreshTokensRouter);
+app.use("/api", frontPageRouter);
 
 module.exports = app;

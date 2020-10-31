@@ -4,9 +4,15 @@ const { URL_SERVICE_COURSE } = process.env;
 const api = apiAdapter(URL_SERVICE_COURSE);
 
 module.exports = async (req, res) => {
+  const status = req.query.status;
   try {
-    const getCourse = await api.get("/api/courses");
-    return res.json(getCourse.data);
+    if (status) {
+      const getCourse = await api.get(`/api/courses?status=${status}`);
+      return res.json(getCourse.data);
+    } else {
+      const getCourse = await api.get("/api/courses");
+      return res.json(getCourse.data);
+    }
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
       return res
