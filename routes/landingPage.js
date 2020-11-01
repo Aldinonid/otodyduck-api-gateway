@@ -10,7 +10,7 @@ const landingPage = async (req, res) => {
     );
     const users = await apiAdapter(URL_SERVICE_USER).get("/users");
 
-    const teachers = users.data.data.filter((user) => user.role === "admin");
+    const teachers = users.data.data.filter((user) => user.role === "teacher");
     const students = users.data.data.filter((user) => user.role === "student");
 
     return res.json({
@@ -33,6 +33,6 @@ const landingPage = async (req, res) => {
   }
 };
 
-router.get("/landing-page", landingPage);
+router.get("/", landingPage);
 
 module.exports = router;

@@ -14,7 +14,7 @@ const lessonsRouter = require("./routes/lessons");
 const toolsRouter = require("./routes/tools");
 const myCoursesRouter = require("./routes/myCourses");
 const refreshTokensRouter = require("./routes/refreshTokens");
-const frontPageRouter = require("./routes/frontPage");
+const landingPageRouter = require("./routes/landingPage");
 
 const verifyToken = require("./middlewares/verifyToken");
 
@@ -36,6 +36,6 @@ app.use("/lessons", verifyToken, lessonsRouter);
 app.use("/tools", verifyToken, toolsRouter);
 app.use("/my-courses", verifyToken, myCoursesRouter);
 app.use("/refresh-tokens", refreshTokensRouter);
-app.use("/api", frontPageRouter);
+app.use("/landing-page", landingPageRouter);
 
 module.exports = app;
