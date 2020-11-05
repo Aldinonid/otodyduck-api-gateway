@@ -4,7 +4,6 @@ const { URL_SERVICE_COURSE } = process.env;
 const api = apiAdapter(URL_SERVICE_COURSE);
 
 module.exports = async (req, res) => {
-  const status = req.query.status;
   try {
     const courses = await api.get("/api/courses", {
       params: {
