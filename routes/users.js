@@ -9,7 +9,7 @@ router.post("/register", userHandler.register);
 router.post("/login", userHandler.login);
 router.post("/logout", verifyToken, userHandler.logout);
 
-router.put("/:id", verifyToken, userHandler.update);
+router.put("/", verifyToken, userHandler.update);
 
 router.delete("/:id", userHandler.destroy);
 
