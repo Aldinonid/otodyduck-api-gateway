@@ -5,9 +5,9 @@ const api = apiAdapter(URL_SERVICE_MEDIA);
 
 module.exports = async (req, res) => {
   try {
-    const toolId = req.params.id;
-    const createTool = await api.delete(`/medias/${toolId}`);
-    return res.json(createTool.data);
+    const imageId = req.params.id;
+    const deleteImage = await api.delete(`/images/${imageId}`);
+    return res.json(deleteImage.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
       return res

@@ -5,10 +5,10 @@ const api = apiAdapter(URL_SERVICE_MEDIA);
 
 module.exports = async (req, res) => {
   try {
-    const toolId = req.params.id;
+    const imageId = req.params.id;
     const data = req.body;
-    const createTool = await api.put(`/tools/${toolId}`, data);
-    return res.json(createTool.data);
+    const updateMedia = await api.put(`/images/${imageId}`, data);
+    return res.json(updateMedia.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
       return res

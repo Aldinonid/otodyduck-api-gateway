@@ -5,8 +5,8 @@ const api = apiAdapter(URL_SERVICE_MEDIA);
 
 module.exports = async (req, res) => {
   try {
-    const tools = await api.get("/tools");
-    return res.json(tools.data);
+    const media = await api.get("/images");
+    return res.json(media.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
       return res
