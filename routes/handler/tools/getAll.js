@@ -5,7 +5,11 @@ const api = apiAdapter(URL_SERVICE_COURSE);
 
 module.exports = async (req, res) => {
   try {
-    const tools = await api.get("/api/tools");
+    const tools = await api.get("/api/tools", {
+      params: {
+        ...req.query,
+      },
+    });
     return res.json(tools.data);
   } catch (err) {
     if (err.code === "ECONNREFUSED") {
