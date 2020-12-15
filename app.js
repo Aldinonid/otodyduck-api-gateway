@@ -14,6 +14,7 @@ const lessonsRouter = require("./routes/lessons");
 const toolsRouter = require("./routes/tools");
 const myCoursesRouter = require("./routes/myCourses");
 const webhookRouter = require("./routes/webhook");
+const orderPaymentsRouter = require("./routes/orderPayment");
 const refreshTokensRouter = require("./routes/refreshTokens");
 const landingPageRouter = require("./routes/landingPage");
 
@@ -37,6 +38,7 @@ app.use("/lessons", verifyToken, lessonsRouter);
 app.use("/tools", verifyToken, toolsRouter);
 app.use("/my-courses", verifyToken, myCoursesRouter);
 app.use("/webhook", webhookRouter);
+app.use("/orders", verifyToken, orderPaymentsRouter);
 app.use("/refresh-tokens", refreshTokensRouter);
 app.use("/landing-page", landingPageRouter);
 
