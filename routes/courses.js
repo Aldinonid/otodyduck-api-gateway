@@ -4,7 +4,7 @@ const verifyToken = require("../middlewares/verifyToken");
 const courseHandler = require("./handler/courses");
 
 //? GET, POST, PUT, DELETE ?//
-router.get("/:id", courseHandler.getCourse);
+router.get("/:slug", courseHandler.getCourse);
 router.get("/", courseHandler.getAllCourses);
 
 router.post("/", verifyToken, courseHandler.create);
